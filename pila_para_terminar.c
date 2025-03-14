@@ -13,7 +13,7 @@
 //  Declaración, Stack.h
 //----------------------------------------------------------------------
 
-// Reactive el bloque siguiente cuando haya movido este código al 
+// Reactiva el bloque siguiente cuando haya movido este código al 
 // archivo Stack.h.
 #if 0 
 #include <stdlib.h>
@@ -29,9 +29,9 @@
 
 typedef struct
 {
-	int* stack;      /**!< Contenedor de la pila. Es un arreglo dinámico de enteros. */
-	size_t top;      /**!< Apunta al tope de la pila. */
-	size_t capacity; /**!< Número máximo de elementos en la pila. */
+	int* stack;
+	size_t top;
+	size_t capacity;
 } Stack;
 
 /**
@@ -41,14 +41,14 @@ typedef struct
  *
  * @return Una referencia a la pila
  */
-Stack* Stack_New( size_t _capacity );
+Stack* Stack_New( size_t capacity );
 
 /**
  * @brief Destruye una pila
  *
  * @param this Referencia un objeto Stack
  */
-void Stack_Delete( Stack** this );
+void Stack_Delete( Stack** pThis );
 
 /**
  * @brief Inserta un elemento en el top de la pila
@@ -58,7 +58,7 @@ void Stack_Delete( Stack** this );
  *
  * @pre La pila existe y no está llena
  */
-void Stack_Push( Stack* this, int _data );
+void Stack_Push( Stack* this, int item );
 
 /**
  * @brief Extrae el elemento en el top de la pila
@@ -139,15 +139,15 @@ void Stack_MakeEmtpy( Stack* this );
 //  Implementación, Stack.c
 //----------------------------------------------------------------------
 
-Stack* Stack_New( size_t _capacity )
+Stack* Stack_New( size_t capacity )
 {
 }
 
-void Stack_Delete( Stack** this )
+void Stack_Delete( Stack** pThis )
 {
 }
 
-void Stack_Push( Stack* this, int _data )
+void Stack_Push( Stack* this, int item )
 {
 }
 
@@ -190,44 +190,4 @@ size_t Stack_Len( Stack* this )
 //----------------------------------------------------------------------
 int main()
 {
-   Stack* miPila = Stack_New( 5 );
-
-#if 0 
-   printf( "La capacidad de la pila es: %ld\n", 
-         Stack_Capacity( miPila ) );
-
-   if( Stack_IsEmpty( miPila ) == true ){
-      printf( "La pila está vacía.\n" );
-   }
-
-   Stack_Push( miPila, 1 );
-
-   Stack_Push( miPila, 2 );
-
-   if( Stack_IsEmpty( miPila ) == false ){
-      printf( "La pila no está vacía.\n" );
-   }
-
-   Stack_Push( miPila, 3 );
-
-   printf( "El número de elementos restantes en la pila es: %ld\n", 
-         Stack_Len( miPila ) );
-
-   printf( "Poping: %d\n", 
-         Stack_Pop( miPila ) );
-
-   printf( "Poping: %d\n", 
-         Stack_Pop( miPila ) );
-
-   printf( "El número de elementos restantes en la pila es: %ld\n", 
-         Stack_Len( miPila ) );
-
-   printf( "Queremos ver el elemento en el tope: %d\n", 
-         Stack_Peek( miPila ) );
-
-   printf( "Poping: %d\n", 
-         Stack_Pop( miPila ) );
-#endif  
-
-   Stack_Delete( &miPila );
 }
